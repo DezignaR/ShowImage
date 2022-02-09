@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.myapplication.R
 import com.example.myapplication.URLImage
+import com.example.myapplication.databinding.ItemGeneralBinding
 import com.example.myapplication.inflate
 
 class GeneralAdapter() : ListAdapter<URLImage, GeneralAdapter.GeneralViewHolder>(
@@ -30,13 +32,13 @@ class GeneralAdapter() : ListAdapter<URLImage, GeneralAdapter.GeneralViewHolder>
         holder.bind(getItem(position))
     }
 
-    inner class GeneralViewHolder(private val containerView: View) :
-        RecyclerView.ViewHolder(containerView), LayoutContainer {
-
+    inner class GeneralViewHolder(containerView: View) :
+        RecyclerView.ViewHolder(containerView) {
+        private val viewBinding by viewBinding(ItemGeneralBinding::bind)
         fun bind(urlImage: URLImage) {
-            with(itemView) {
 
-            }
+                viewBinding.tvUrlImage.text=urlImage.image
+
         }
     }
 }
