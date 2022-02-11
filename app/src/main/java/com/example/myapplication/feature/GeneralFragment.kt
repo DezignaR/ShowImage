@@ -11,7 +11,7 @@ import com.example.myapplication.databinding.GeneralFragmentBinding
 
 
 class GeneralFragment : Fragment(R.layout.general_fragment) {
-    private val viewwBinding by viewBinding(GeneralFragmentBinding::bind)
+    private val viewBinding by viewBinding(GeneralFragmentBinding::bind)
 
     override fun onCreateView(
         inflater: LayoutInflater,
